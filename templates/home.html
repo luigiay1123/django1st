@@ -1,5 +1,8 @@
 {%extends "base.html"%} {% load thumbnail %} {%block title%}My super awesome
-homepage{%endblock%} % {%block body%} {%for post in posts%}
+homepage{%endblock%} {%block body%}
+<a href="{%url 'feed:post'%}">Add a new post &rarr;</a>
+<hr />
+{%for post in posts%}
 <a href="{% url 'feed:detail' post.id %}" style="display: inline-block">
   {{post.text}} <br />
   {% thumbnail post.image "200x200" crop="center" as im %}
